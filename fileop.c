@@ -33,6 +33,10 @@ void execute_file(char *arg)
 			}
 			else if (strcmp(token[0], "pall") == 0)
 				pall(my_stack);
+			else if (strcmp(token[0], "pint") == 0)
+				pint(my_stack);
+			else if (strcmp(token[0], "pop") == 0)
+				pop(&my_stack);
 			else
 			{
 				printf("An error occured");

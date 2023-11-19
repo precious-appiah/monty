@@ -50,5 +50,7 @@ void push(stack_t **stack, int value);
 void pall(stack_t *stack);
 char **str_tok(char *input);
 void execute_file(char *arg);
+void pint(stack_t *stack);
+void pop(stack_t **stack);
 
 #endif

@@ -38,3 +38,42 @@ void pall(stack_t *stack)
 	}
 }
 
+/**
+ * pint - function to print first element
+ * @stack : val to be added
+ * Return: nothing
+ */
+void pint(stack_t *stack)
+{
+	if (stack == NULL)
+	{
+		printf("can't pint, stack empty");
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", stack->n);
+}
+
+/**
+ * pop - function to print first element
+ * @stack : val to be added
+ * Return: nothing
+ */
+void pop(stack_t **stack)
+{
+	stack_t *temp;
+
+	if (*stack == NULL)
+	{
+		printf("can't pop an empyty stack \n");
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	*stack = (*stack)->next;
+	if (*stack != NULL)
+	{
+		(*stack)->prev = NULL;
+	}
+	free(temp);
+}
+
+
