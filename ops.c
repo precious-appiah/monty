@@ -23,3 +23,18 @@ void push(stack_t **stack, int value)
 		(*stack)->prev = new_node;
 	*stack = new_node;
 }
+
+/**
+ * pall - function to print all
+ * @stack : val to be added
+ * Return: nothin
+ */
+void pall(stack_t *stack)
+{
+	while (stack != NULL)
+	{
+		printf("%d\n", stack->n);
+		stack = stack->next;
+	}
+}
+

@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * str_tok - function to tokenize
- * @input: input param
+ * @line: input param
  * Return: char
  */
 char **str_tok(char *line)

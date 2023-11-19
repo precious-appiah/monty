@@ -27,5 +27,6 @@ char *_duplicate(char *str)
 		i++;
 	}
 	*(new_str + i) = '\0';
+
 	return (new_str);
 }

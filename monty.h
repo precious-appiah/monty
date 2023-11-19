@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define  _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -45,9 +46,9 @@ typedef struct instruction_s
 
 int _argc(char *str);
 char *_duplicate(char *str);
-void execute_file(char *arg);
 void push(stack_t **stack, int value);
-int main(int argc, char *argv[]);
+void pall(stack_t *stack);
 char **str_tok(char *input);
+void execute_file(char *arg);
 
 #endif
