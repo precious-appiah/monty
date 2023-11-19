@@ -1,5 +1,16 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MONTY_H
+#define MONTY_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <ctype.h>
+#include <stdarg.h>
+#include <sys/types.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -30,5 +41,13 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+
+int _argc(char *str);
+char *_duplicate(char *str);
+void execute_file(char *arg);
+void push(stack_t **stack, int value);
+int main(int argc, char *argv[]);
+char **str_tok(char *input);
 
 #endif

@@ -1,25 +1,29 @@
-#include "monty.h"
 #include <stdio.h>
+#include "monty.h"
 
 /**
  * execute_file- functtion to read and execute file content
- * @file_path: path to file to be read
+ * @file: path to file to be read
  * Return: nothing
  */
-void execute_file(FILE *file)
+void execute_file(char *arg)
 {
-	char *line, f_open;
-	size_t line_size = 0;
-	char *token;
+	char *buffer = NULL;
+	size_t n = 0;
+	char **token;
+	FILE *file;
 	unsigned int line_num;
 
-	f_open = fopen(file, "r");
-	if (f_open == NULL)
+	file = fopen(arg, "r");
+	if (file == NULL)
+	{
 		exit(EXIT_FAILURE);
-	while (getline(&line, &line_size, f_open) != -1)
+	}
+
+	while (getline(&buffer, &n, stdin) != -1)
 	{
 		line_num += 1;
-		token = str_tok(line);
+		token = str_tok(buffer);
 		if (token != NULL)
 		{
 			if (strcmp(token[0], "push") == 0 && token[1] != NULL)
@@ -42,7 +46,7 @@ void execute_file(FILE *file)
 		}
 	}
 
-	fclose(f_open);
-	free(line);
+	fclose(file);
+	free(buffer);
 	free(token);
 }

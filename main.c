@@ -7,16 +7,12 @@
  */
 int main(int argc, char *argv[])
 {
-	FILE *file;
-
 	if (argc != 2)
 	{
 		exit(EXIT_FAILURE);
 	}
 	
-	file = argv[1];
-
-	execute_file(file);
+	execute_file(argv[1]);
 	 
 	return (0);
 }
