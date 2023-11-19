@@ -14,15 +14,9 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	
-	file = fopen(argv[1], "r");
-
-	if(!file)
-	{
-		exit(EXIT_FAILURE);
-	}
+	file = argv[1];
 
 	execute_file(file);
-	fclose(file);
-
+	 
 	return (0);
 }
