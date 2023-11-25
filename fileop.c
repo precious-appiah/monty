@@ -32,21 +32,14 @@ void free_close_exit(char *buffer, stack_t *stack, FILE *file)
  * @arg: path to file to be read
  * Return: nothing
  */
-void execute_file(char *arg)
+void execute_file(FILE *file)
 {
 	char *buffer = NULL;
 	size_t n = 0;
 	char **token;
-	FILE *file;
 	unsigned int line_num;
 	stack_t *my_stack = NULL;
 
-	file = fopen(arg, "r");
-	if (file == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", arg);
-		exit(EXIT_FAILURE);
-	}
 	while (getline(&buffer, &n, file) != -1)
 	{
 		line_num += 1;
@@ -70,6 +63,11 @@ void execute_file(char *arg)
 				free_close_exit(buffer, my_stack, file);
 			}
 			push(&my_stack, atoi(token[1]));
+		}
+		else if (select_opcodes(token, &my_stack, line_num) == 1)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, token[0]);
+			free_close_exit(buffer, my_stack, file);
 		}
 	}
 	free(buffer);

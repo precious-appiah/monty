@@ -13,6 +13,8 @@ void push(stack_t **stack, int value)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: Unable to allocate memory.\n");
+		free(new_node);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -29,12 +31,20 @@ void push(stack_t **stack, int value)
  * @stack : val to be added
  * Return: nothin
  */
-void pall(stack_t *stack)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	while (stack != NULL)
+	stack_t *current = *stack;
+	(void)line_number;
+
+	if (*stack ==  NULL)
 	{
-		printf("%d\n", stack->n);
-		stack = stack->next;
+		return;
+	}
+
+	while (current != NULL)
+	{
+		printf("%d\n", current->n);
+		current = current->next;
 	}
 }
 
