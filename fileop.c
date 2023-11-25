@@ -18,6 +18,7 @@ void execute_file(char *arg)
 	file = fopen(arg, "r");
 	if (file == NULL)
 	{
+		fprintf(stderr, "Error: Can't open file %s\n", arg);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&buffer, &n, file) != -1)
