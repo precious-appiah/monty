@@ -14,6 +14,12 @@ char **str_tok(char *line)
 	arg_count = _argc(line);
 	arg_count++;
 	argv = malloc(sizeof(char *) * arg_count);
+	if (argv == NULL)
+	{
+		fprintf(stderr, "Memory allocation failed\n");
+		exit(EXIT_FAILURE);
+	}
+
 	token = strtok(line, " \t\n");
 	while (token)
 	{

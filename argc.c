@@ -11,8 +11,15 @@ int _argc(char *str)
 	char *token;
 	int i = 0;
 
-	new_str = _duplicate(str);
-	token = strtok(new_str, " ");
+	new_str = strdup(str);
+	token = strtok(new_str, " \t\n");
+	if (token == NULL)
+	{
+		free(str), str =  NULL;
+		free(new_str), new_str = NULL;
+		fprintf(stderr, "Memory allocation failed\n");
+		exit(EXIT_FAILURE);
+	}
 	while (token)
 	{
 		i++;

@@ -69,26 +69,22 @@ void execute_file(char *arg)
 		if (token == NULL)
 			continue;
 
-		if (strcmp(token[0], "push") == 0 && token[1] != NULL)
+		if (strcmp(token[0], "push") == 0)
 		{
+			if (token[1] == NULL || !is_valid_integer(token[1]))
+			{
+				fflush(stdout);
+				fprintf(stderr, "L%d: usage: push integer\n", line_num);
+				free(token);
+				free_close_exit(buffer, my_stack, file);
+			}
 			val = atoi(token[1]);
 			push(&my_stack, val);
-		}
-		else if (strcmp(token[0], "pall") == 0)
-			pall(my_stack);
-		else if (strcmp(token[0], "pint") == 0)
-			pint(my_stack);
-		else if (strcmp(token[0], "pop") == 0)
-			pop(&my_stack);
-		else
-		{
-			free(token);
-			exit(EXIT_FAILURE);
 		}
 	}
 
 	fclose(file);
 	free(buffer);
 	free(token);
-	free(my_stack);
+	free_stack(&my_stack);
 }
