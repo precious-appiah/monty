@@ -52,5 +52,7 @@ char **str_tok(char *input);
 void execute_file(char *arg);
 void pint(stack_t *stack);
 void pop(stack_t **stack);
+void free_close_exit(char *line, stack_t *stack, FILE *file);
+void free_stack(stack_t **stack);
 
 #endif
