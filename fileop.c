@@ -29,7 +29,7 @@ void free_close_exit(char *buffer, stack_t *stack, FILE *file)
 }
 /**
  * execute_file- function to read and execute file content
- * @arg: path to file to be read
+ * @file: file to be read
  * Return: nothing
  */
 void execute_file(FILE *file)

@@ -29,6 +29,7 @@ void push(stack_t **stack, int value)
 /**
  * pall - function to print all
  * @stack : val to be added
+ * @line_number: line number
  * Return: nothin
  */
 void pall(stack_t **stack, unsigned int line_number)
