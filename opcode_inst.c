@@ -15,6 +15,7 @@ int select_opcodes(char **tokens, stack_t **stack, unsigned int line_number)
 	instruction_t instructions[] = {
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		/**
 		 * {"swap", swap},
 		{"pint", pint},

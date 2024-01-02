@@ -76,22 +76,21 @@ void pint(stack_t **stack, unsigned int line_number)
  * @stack : val to be added
  * Return: nothing
  */
-void pop(stack_t **stack)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
 	if (*stack == NULL)
 	{
-		printf("can't pop an empyty stack \n");
+		fprintf(stderr, "L%d: can't pop an empyty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = *stack;
 	*stack = (*stack)->next;
+
 	if (*stack != NULL)
 	{
 		(*stack)->prev = NULL;
 	}
 	free(temp);
 }
-
-

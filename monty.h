@@ -50,7 +50,7 @@ void pall(stack_t **stack, unsigned int line_number);
 char **str_tok(char *input);
 void execute_file(FILE *file);
 void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack);
+void pop(stack_t **stack, unsigned int line_number);
 void free_close_exit(char *line, stack_t *stack, FILE *file);
 void free_stack(stack_t **stack);
 int is_valid_integer(char *str);
