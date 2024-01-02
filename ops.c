@@ -54,14 +54,21 @@ void pall(stack_t **stack, unsigned int line_number)
  * @stack : val to be added
  * Return: nothing
  */
-void pint(stack_t *stack)
+void pint(stack_t **stack, unsigned int line_number)
 {
+	stack_t *current = *stack;
+
 	if (stack == NULL)
 	{
-		printf("can't pint, stack empty");
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
+		return;
 	}
-	printf("%d\n", stack->n);
+	if (current)
+	{
+		printf("%d\n", current->n);
+		current = current->next;
+	}
 }
 
 /**
