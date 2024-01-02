@@ -69,6 +69,7 @@ void execute_file(FILE *file)
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, token[0]);
 			free_close_exit(buffer, my_stack, file);
 		}
+		free(token);
 	}
 	free(buffer);
 	free_stack(&my_stack);
