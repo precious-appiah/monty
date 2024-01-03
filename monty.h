@@ -56,5 +56,5 @@ void free_stack(stack_t **stack);
 int is_valid_integer(char *str);
 void free_array(char **tokens);
 int select_opcodes(char **tokens, stack_t **stack, unsigned int line_number);
-
+void swap(stack_t **stack, unsigned int line_num);
 #endif

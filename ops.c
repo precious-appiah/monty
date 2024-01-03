@@ -52,6 +52,7 @@ void pall(stack_t **stack, unsigned int line_number)
 /**
  * pint - function to print first element
  * @stack : val to be added
+ * @line_number: line number
  * Return: nothing
  */
 void pint(stack_t **stack, unsigned int line_number)
@@ -74,6 +75,7 @@ void pint(stack_t **stack, unsigned int line_number)
 /**
  * pop - function to print first element
  * @stack : val to be added
+ * @line_number: line number
  * Return: nothing
  */
 void pop(stack_t **stack, unsigned int line_number)
