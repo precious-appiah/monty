@@ -57,4 +57,5 @@ int is_valid_integer(char *str);
 void free_array(char **tokens);
 int select_opcodes(char **tokens, stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_num);
+void add(stack_t **stack, unsigned int line_num);
 #endif
